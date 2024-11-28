@@ -1950,7 +1950,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4004468145395006, guid: a0ac4c6540ad663468d86b7d6bb07c9d, type: 3}
   m_PrefabInstance: {fileID: 240217991}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &722450057
+--- !u!1 &706427845
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1958,7 +1958,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 722450058}
+  - component: {fileID: 706427846}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -1966,13 +1966,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &722450058
+--- !u!4 &706427846
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 722450057}
+  m_GameObject: {fileID: 706427845}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.162131, y: -0.7827707, z: 3.394644}
@@ -7093,4 +7093,4 @@ SceneRoots:
   - {fileID: 1663316550}
   - {fileID: 1071164491}
   - {fileID: 1134002458}
-  - {fileID: 722450058}
+  - {fileID: 706427846}
