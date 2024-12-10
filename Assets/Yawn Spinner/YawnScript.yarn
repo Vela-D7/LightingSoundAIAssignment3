@@ -1,0 +1,283 @@
+﻿title: Start
+tags:
+---
+Welcome to the start of your journey in the mines.
+
+<<declare $takeGem = false as bool>>
+<<declare $takeSword = false as bool>>
+<<declare $kingDefeated = false as bool>>
+<<declare $robotDefeated = false as bool>>
+
+===
+
+title: NPCInteraction
+tags:
+---
+<<change_audio_to_ambient_lighting YarnCommandHolder>>
+You find yourself deep within the cursed mine. The faint glow of a lantern rests atop an old wooden crate. 
+
+<<if $takeGem == false and $takeSword == false>>
+-> Walk towards the lantern to examine it.
+    <<jump LanternInteraction>>
+-> Continue further into the mine, ignoring the lantern.
+    <<jump MinePath>>
+<<else>>
+-> Examine the surroundings. 
+    <<jump MinePath>>
+<<endif>>
+
+===
+
+title: LanternInteraction
+tags:
+---
+<<change_audio_to_lantern_flicker YarnCommandHolder>>
+You approach the lantern resting on top of the crate. The light flickers as if beckoning you closer. The shadows cast long across the cavern walls. In the corner of your eye, you see scattered bones and skulls of past souls lost to the depths.
+
+<<if $takeGem == false>>
+-> Take the Gem from the crate?
+    <<jump GemChoice>>
+<<else>>
+-> Take the Sword instead?
+    <<jump SwordChoice>>
+<<endif>>
+
+===
+
+title: GemChoice
+tags:
+---
+<<change_audio_to_ambient_cavern YarnCommandHolder>>
+The gem feels cold, almost unnatural in its smoothness. As you grip it, the air grows heavier, and a voice echoes in your mind.
+
+**Voice (Ra-Hotep):** "Do you truly think this gem will grant you eternity? Foolish mortal, take it if you dare."
+
+<<set $takeGem = true>>
+<<jump MinePath>>
+
+===
+
+title: SwordChoice
+tags:
+---
+<<change_audio_to_sword_rustling YarnCommandHolder>>
+You take the sword, its weight immediate and imposing. It hums in your grip, as if eager for battle.
+
+**Voice (Ra-Hotep):** "A sword? You think you can challenge the curse with mere steel? Proceed, if you wish, but remember, all paths lead to the same fate."
+
+<<set $takeSword = true>>
+<<jump MinePath>>
+
+===
+
+title: MinePath
+tags:
+---
+The path ahead splits into two directions. To the right, a grand statue of two men locked in combat with a monstrous beast, possibly a dinosaur, looms. To the left, an eerie glow pulsates from the darkness. A deep, hollow voice beckons you to approach the statue.
+
+<<if $takeSword == true>>
+-> Approach the statue and pass through to continue the journey.
+    <<jump StatueConfrontation>>
+<<else>>
+-> Walk towards the left path, avoiding the statue.
+    <<jump LeftPath>>
+<<endif>>
+
+===
+
+title: StatueConfrontation
+tags:
+---
+<<change_audio_to_statue_echo YarnCommandHolder>>
+As you approach the statue, the air grows dense. A body, hanging from a decaying wooden beam, comes into view. Its eyes lock onto yours, and it speaks.
+
+**Voice (Amunet):** "I was once like you. The king's command was my doom. I failed in the mines. I was hanged for my failure."
+
+-> Speak to the body. 
+    <<jump HangingManChoice>>
+-> Ignore and proceed past the hanging man.
+    <<jump IgnoreManChoice>>
+
+===
+
+title: HangingManChoice
+tags:
+---
+**Voice (Amunet):** "Take my gem, the one beneath me. Return and leave this cursed place. I warn you, if you continue, the same fate will befall you."
+
+<<set $takeGem = true>>
+<<jump MinePath>>
+
+===
+
+title: IgnoreManChoice
+tags:
+---
+**Voice (Amunet):** "Foolish. You walk blindly into oblivion."
+
+<<jump MinePath>>
+
+===
+
+title: LeftPath
+tags:
+---
+You decide to move forward, leaving the hanging figure behind. The cavern opens into a massive chamber, where the king, now a shadow of his former self, still digs endlessly for the gem.
+
+**Voice (Ra-Hotep):** "You have come. Finally, you see the curse. To be immortal is to never rest, to be bound to the earth forever. If you wish to end it, you must free me."
+
+-> Burn the king with the lantern?
+    <<jump BurnChoice>>
+-> Walk away?
+    <<jump WalkAwayChoice>>
+
+===
+
+title: BurnChoice
+tags:
+---
+<<change_audio_to_fire_sound YarnCommandHolder>>
+With a trembling hand, you lift the lantern to the king. The flames lick the air as he screams in agony.
+
+**Voice (Ra-Hotep):** "End it... End my torment... Let my ashes speak the lesson of greed."
+
+<<set $kingDefeated = true>>
+<<jump EndGame>>
+
+===
+
+title: WalkAwayChoice
+tags:
+---
+**Voice (Ra-Hotep):** "Coward. You will never escape the curse. It will follow you until the end of your days."
+
+<<jump EndGame>>
+
+===
+
+// ### **Right-Hand Path: The Crypto Mining Future Path**
+
+title: CryptoStart
+tags:
+---
+Welcome to the future. You arrive at the high-tech mining facility. The buzzing of machines fills the air, and the scent of electricity hums in the background.
+
+<<declare $takeOrb = false as bool>>
+<<declare $takeAxe = false as bool>>
+
+===
+
+title: CryptoNPCInteraction
+tags:
+---
+<<change_audio_to_ambient_future YarnCommandHolder>>
+You find yourself in a cutting-edge crypto mining facility, the high-pitched hum of the machines reverberates through the walls. A strange energy in the air is palpable.
+
+<<if $takeOrb == false and $takeAxe == false>>
+-> Examine the orb at the center of the room.
+    <<jump OrbInteraction>>
+-> Walk toward the IT Boss’s office.
+    <<jump ITBossInteraction>>
+<<else>>
+-> Examine the surroundings. 
+    <<jump CryptoPath>>
+<<endif>>
+
+===
+
+title: OrbInteraction
+tags:
+---
+<<change_audio_to_orb_energy YarnCommandHolder>>
+You approach the orb. Its pulsating glow is mesmerizing, but you feel a deep sense of unease. This is not just a gem—it’s a power source for crypto mining.
+
+**Voice (IT Boss):** "You’ve found it. The key to infinite power... or the key to our destruction. Beware, for its greed consumes all who touch it."
+
+<<set $takeOrb = true>>
+<<jump CryptoPath>>
+
+===
+
+title: ITBossInteraction
+tags:
+---
+<<change_audio_to_techno_hum YarnCommandHolder>>
+You step into the office, where the IT Boss stands over a control panel, monitoring the mining operation. His cold gaze meets yours.
+
+**Voice (IT Boss):** "Ah, you're here. The orb, it calls you, doesn’t it? But beware, the robots have orders to kill anyone who gets too close to the power source. Proceed with caution."
+
+-> Fight the robots and take the orb?
+    <<jump FightRobots>>
+-> Walk away from the power source?
+    <<jump WalkAwayCrypto>>
+
+===
+
+title: FightRobots
+tags:
+---
+<<change_audio_to_combat_music YarnCommandHolder>>
+The robots activate, their metallic limbs screeching as they move towards you. You fight them off one by one.
+
+**Voice (Robot 1):** "Intruder detected. Initiating termination protocol."
+**Voice (Robot 2):** "You cannot stop the power. You cannot stop the king of the mines."
+**Voice (Robot 3):** "Power... overwhelming... system failure imminent."
+
+<<set $robotDefeated = true>>
+<<jump CryptoPath>>
+
+===
+
+title: WalkAwayCrypto
+tags:
+---
+**Voice (IT Boss):** "You coward. You walk away from true power. I will make sure you never leave here alive."
+
+<<jump EndGame>>
+
+===
+
+title: CryptoPath
+tags:
+---
+You have overcome the robots. The IT Boss awaits, and the orb now pulses with energy, ready to be taken.
+
+**Voice (IT Boss):** "Do you see the future now? The path to immortality? It is not a blessing—it is a curse. Take it if you dare."
+
+-> Take the Orb?
+    <<jump TakeOrb>>
+-> Destroy the Orb?
+    <<jump DestroyOrb>>
+
+===
+
+title: TakeOrb
+tags:
+---
+<<change_audio_to_orb_explosion YarnCommandHolder>>
+The orb hums as you grip it. Energy courses through your veins, and a vision of eternal power fills your mind. But you know this power comes at a great cost.
+
+**Voice (IT Boss):** "You have chosen immortality... The price is your soul. You will become like us. A shadow of yourself."
+
+<<jump EndGame>>
+
+===
+
+title: DestroyOrb
+tags:
+---
+You destroy the orb, its power shattering into nothingness. The room falls silent.
+
+**Voice (IT Boss):** "No! You fool! The world needed that power... Now, you will pay the price."
+
+<<jump EndGame>>
+
+===
+
+### **EndGame**
+tags:
+---
+<<if $kingDefeated == true or $robotDefeated == true>>
+Congratulations. You have completed your journey, but the price of immortality has forever altered you.
+<<else>>
+The curse of immortality claims you as its own. You walk the earth, lost to time and bound to the mines.
