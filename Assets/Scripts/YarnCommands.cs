@@ -108,11 +108,6 @@ public class YarnCommands : MonoBehaviour
         voiceOverView.audioSource = swordRustlingAudio;
     }
 
-    [YarnCommand("change_audio_to_statue_echo")]
-    public void StatueEchoAudio()
-    {
-        voiceOverView.audioSource = statueEchoAudio;
-    }
 
     [YarnCommand("change_audio_to_fire_sound")]
     public void FireSoundAudio()
