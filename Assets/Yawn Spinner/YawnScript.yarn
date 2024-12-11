@@ -1,4 +1,4 @@
-﻿title: Start
+﻿title: Being
 tags:
 ---
 Welcome to the start of your journey in the mines.
@@ -10,88 +10,15 @@ Welcome to the start of your journey in the mines.
 
 ===
 
-title: NPCInteraction
-tags:
----
-<<change_audio_to_ambient_lighting YarnCommandHolder>>
-You find yourself deep within the cursed mine. The faint glow of a lantern rests atop an old wooden crate. 
-
-<<if $takeGem == false and $takeSword == false>>
--> Walk towards the lantern to examine it.
-    <<jump LanternInteraction>>
--> Continue further into the mine, ignoring the lantern.
-    <<jump MinePath>>
-<<else>>
--> Examine the surroundings. 
-    <<jump MinePath>>
-<<endif>>
-
-===
-
-title: LanternInteraction
-tags:
----
-<<change_audio_to_lantern_flicker YarnCommandHolder>>
-You approach the lantern resting on top of the crate. The light flickers as if beckoning you closer. The shadows cast long across the cavern walls. In the corner of your eye, you see scattered bones and skulls of past souls lost to the depths.
-
-<<if $takeGem == false>>
--> Take the Gem from the crate?
-    <<jump GemChoice>>
-<<else>>
--> Take the Sword instead?
-    <<jump SwordChoice>>
-<<endif>>
-
-===
-
-title: GemChoice
-tags:
----
-<<change_audio_to_ambient_cavern YarnCommandHolder>>
-The gem feels cold, almost unnatural in its smoothness. As you grip it, the air grows heavier, and a voice echoes in your mind.
-
-**Voice (Ra-Hotep):** "Do you truly think this gem will grant you eternity? Foolish mortal, take it if you dare."
-
-<<set $takeGem = true>>
-<<jump MinePath>>
-
-===
-
-title: SwordChoice
-tags:
----
-<<change_audio_to_sword_rustling YarnCommandHolder>>
-You take the sword, its weight immediate and imposing. It hums in your grip, as if eager for battle.
-
-**Voice (Ra-Hotep):** "A sword? You think you can challenge the curse with mere steel? Proceed, if you wish, but remember, all paths lead to the same fate."
-
-<<set $takeSword = true>>
-<<jump MinePath>>
-
-===
-
-title: MinePath
-tags:
----
-The path ahead splits into two directions. To the right, a grand statue of two men locked in combat with a monstrous beast, possibly a dinosaur, looms. To the left, an eerie glow pulsates from the darkness. A deep, hollow voice beckons you to approach the statue.
-
-<<if $takeSword == true>>
--> Approach the statue and pass through to continue the journey.
-    <<jump StatueConfrontation>>
-<<else>>
--> Walk towards the left path, avoiding the statue.
-    <<jump LeftPath>>
-<<endif>>
-
-===
-
 title: StatueConfrontation
 tags:
 ---
 <<change_audio_to_statue_echo YarnCommandHolder>>
-As you approach the statue, the air grows dense. A body, hanging from a decaying wooden beam, comes into view. Its eyes lock onto yours, and it speaks.
+As you approach the statue, the air grows dense. A body, hanging from a decaying wooden beam, comes into view. Its eyes lock onto yours, and it speaks. #line:Amunet
 
-**Voice (Amunet):** "I was once like you. The king's command was my doom. I failed in the mines. I was hanged for my failure."
+Voice (Amunet):"1. "Do you see them? Those who came before... they writhe still, unseen."
+"I was one of them, driven by greed, my soul chained to this accursed pit."
+"Do you fancy yourself braver? Wiser? Or is it folly that guides your hand?"
 
 -> Speak to the body. 
     <<jump HangingManChoice>>
@@ -103,7 +30,7 @@ As you approach the statue, the air grows dense. A body, hanging from a decaying
 title: HangingManChoice
 tags:
 ---
-**Voice (Amunet):** "Take my gem, the one beneath me. Return and leave this cursed place. I warn you, if you continue, the same fate will befall you."
+**Voice (Amunet):** "Take it the gem! Leave this place. Perhaps... you'll find peace, or perhaps you'll rot as I do."
 
 <<set $takeGem = true>>
 <<jump MinePath>>
@@ -113,10 +40,22 @@ tags:
 title: IgnoreManChoice
 tags:
 ---
-**Voice (Amunet):** "Foolish. You walk blindly into oblivion."
+**Voice (Amunet):** "Blind are those who tread this path, for it leads only to the abyss."
 
 <<jump MinePath>>
 
+===
+title: SwordChoice
+tags:
+---
+<<change_audio_to_sword_rustling YarnCommandHolder>>
+You take the sword, its weight immediate and imposing. It hums in your grip, as if eager for battle.
+
+**Voice (Amunet):** "A blade against eternity, is it? So be it."
+"Bear it, and let its edge weigh on your spirit. Beyond lies only agony and despair."
+
+<<set $takeSword = true>>
+<<jump MinePath>>
 ===
 
 title: LeftPath

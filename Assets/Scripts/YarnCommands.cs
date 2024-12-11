@@ -8,10 +8,10 @@ public class YarnCommands : MonoBehaviour
     public VoiceOverView voiceOverView;
 
     // Audio sources for each character's voice
-    public AudioSource raHotepAudio, amunetAudio, kingAudio;
+    public AudioSource raHotepAudio, amunetAudio;
     public AudioSource itBossAudio, robot1Audio, robot2Audio, robot3Audio;
-    public AudioSource lanternFlickerAudio, orbEnergyAudio, combatMusicAudio;
-    public AudioSource ambientLightingAudio, swordRustlingAudio, statueEchoAudio, fireSoundAudio;
+    public AudioSource orbEnergyAudio, combatMusicAudio;
+    public AudioSource swordRustlingAudio, fireSoundAudio;
 
     // Track taken items and defeated characters
     private bool takeGem = false;
@@ -37,13 +37,6 @@ public class YarnCommands : MonoBehaviour
     public void AmunetAudio()
     {
         voiceOverView.audioSource = amunetAudio;
-    }
-
-    // Command for changing to the King voice
-    [YarnCommand("change_audio_to_king")]
-    public void KingAudio()
-    {
-        voiceOverView.audioSource = kingAudio;
     }
 
     // Command for changing to the IT Boss voice (Future)
@@ -74,12 +67,7 @@ public class YarnCommands : MonoBehaviour
         voiceOverView.audioSource = robot3Audio;
     }
 
-    // Command for changing to the Lantern Flicker sound
-    [YarnCommand("change_audio_to_lantern_flicker")]
-    public void LanternFlickerAudio()
-    {
-        voiceOverView.audioSource = lanternFlickerAudio;
-    }
+    
 
     // Command for changing to the Orb Energy sound
     [YarnCommand("change_audio_to_orb_energy")]
@@ -95,12 +83,7 @@ public class YarnCommands : MonoBehaviour
         voiceOverView.audioSource = combatMusicAudio;
     }
 
-    // New Commands for additional sound effects
-    [YarnCommand("change_audio_to_ambient_lighting")]
-    public void AmbientLightingAudio()
-    {
-        voiceOverView.audioSource = ambientLightingAudio;
-    }
+  
 
     [YarnCommand("change_audio_to_sword_rustling")]
     public void SwordRustlingAudio()
