@@ -965,7 +965,6 @@ GameObject:
   m_Component:
   - component: {fileID: 118879003}
   - component: {fileID: 118879002}
-  - component: {fileID: 118879001}
   - component: {fileID: 118879000}
   m_Layer: 0
   m_Name: Robot3
@@ -995,33 +994,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.1510696, y: 1.5990145, z: 1}
   m_Center: {x: 0.0040016174, y: 1.1609749, z: 0}
---- !u!54 &118879001
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 118878999}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &118879002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1393,7 +1365,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1401,6 +1373,44 @@ CapsuleCollider:
   m_Height: 2.4173694
   m_Direction: 1
   m_Center: {x: -0.0900992, y: 1.0915917, z: -3.2630607e-10}
+--- !u!195 &170848853
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170848846}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &170848854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170848846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3890d732756e424f9a6532645559b6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  player: {fileID: 702104340}
+  attackRange: 2
+  waitRange: 10
 --- !u!1001 &179094595
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1749,7 +1759,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1057628517641284, guid: 074e9fd3c543c144e972e97dff953b88, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1643985064}
   m_SourcePrefab: {fileID: 100100000, guid: 074e9fd3c543c144e972e97dff953b88, type: 3}
 --- !u!4 &223219048 stripped
 Transform:
@@ -1819,8 +1832,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e303569c799d634ebf97d217e39b173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterName: 
-  talkToNode: Ra-Hotep
+  characterName: Ra-Hotep
+  talkToNode: KingConfrontation
   scriptToLoad: {fileID: 7545569452688597077, guid: 6938af91e93e23648a97b32161f7a050, type: 3}
   dialogueRunner: {fileID: 3579681404588431084}
   dialogueCanvas: {fileID: 7895946088599195259}
@@ -2079,7 +2092,6 @@ GameObject:
   m_Component:
   - component: {fileID: 298619116}
   - component: {fileID: 298619115}
-  - component: {fileID: 298619114}
   - component: {fileID: 298619113}
   m_Layer: 0
   m_Name: Mummy1
@@ -2109,33 +2121,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.9245853, z: 1.2455702}
   m_Center: {x: 0, y: 0.958241, z: -0.010542393}
---- !u!54 &298619114
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 298619112}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &298619115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2773,7 +2758,6 @@ GameObject:
   m_Component:
   - component: {fileID: 361439671}
   - component: {fileID: 361439670}
-  - component: {fileID: 361439669}
   - component: {fileID: 361439668}
   m_Layer: 0
   m_Name: Mummy2
@@ -2803,33 +2787,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 2.4169874, z: 1.0470762}
   m_Center: {x: 0, y: 1.216115, z: 0.023538113}
---- !u!54 &361439669
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 361439667}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &361439670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4475,7 +4432,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -4521,7 +4478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterName: IT Boss
-  talkToNode: IT Boss
+  talkToNode: ITBossConfrontation
   scriptToLoad: {fileID: 7545569452688597077, guid: 6938af91e93e23648a97b32161f7a050, type: 3}
   dialogueRunner: {fileID: 3579681404588431084}
   dialogueCanvas: {fileID: 7895946088599195259}
@@ -4817,6 +4774,11 @@ Transform:
 --- !u!1 &702104339 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7696548424635294048, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+  m_PrefabInstance: {fileID: 1892316818}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &702104340 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7696548424635294051, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
   m_PrefabInstance: {fileID: 1892316818}
   m_PrefabAsset: {fileID: 0}
 --- !u!82 &702104346
@@ -5604,7 +5566,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 796609785}
-  - component: {fileID: 796609784}
   - component: {fileID: 796609783}
   - component: {fileID: 796609782}
   m_Layer: 0
@@ -5653,33 +5614,6 @@ MonoBehaviour:
   dialogueRunner: {fileID: 3579681404588431084}
   dialogueCanvas: {fileID: 7895946088599195259}
   PostionSpeachBubble: {x: 0, y: 2, z: 0}
---- !u!54 &796609784
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 796609781}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!4 &796609785
 Transform:
   m_ObjectHideFlags: 0
@@ -6099,7 +6033,6 @@ GameObject:
   m_Component:
   - component: {fileID: 880682521}
   - component: {fileID: 880682520}
-  - component: {fileID: 880682519}
   - component: {fileID: 880682518}
   m_Layer: 0
   m_Name: Robot1
@@ -6129,33 +6062,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.639971, z: 1}
   m_Center: {x: 0, y: 1.1702954, z: 0}
---- !u!54 &880682519
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 880682517}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &880682520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8432,7 +8338,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1290362485}
   serializedVersion: 4
-  m_Mass: 7
+  m_Mass: 3
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -8450,7 +8356,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!23 &1288393943
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8667,9 +8573,10 @@ GameObject:
   - component: {fileID: 1284189485}
   - component: {fileID: 1287274543}
   - component: {fileID: 1290330429}
+  - component: {fileID: 1290690100}
   m_Layer: 0
   m_Name: Hanging Man Sword
-  m_TagString: Untagged
+  m_TagString: Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8682,13 +8589,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1290362485}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.4556182, y: -0.45970666, z: 0.4593361, w: 0.608352}
-  m_LocalPosition: {x: -18.047562, y: 0.019, z: 12.025}
+  m_LocalRotation: {x: 0.42893553, y: -0.47000962, z: 0.4660874, w: 0.6147096}
+  m_LocalPosition: {x: -18.034, y: 0.114, z: 12.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 77.6, y: -40.959, z: 40.681}
+  m_LocalEulerAnglesHint: {x: 74.9, y: -43.1, z: 40.681}
+--- !u!114 &1290690100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290362485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37d03949e0190344db7d213e0d11452a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sword: {fileID: 1290362485}
 --- !u!1001 &1302672451
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10304,6 +10224,42 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8e12912818819f49958ae146c6ffc96, type: 3}
+--- !u!1 &1643985060 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1057628517641284, guid: 074e9fd3c543c144e972e97dff953b88, type: 3}
+  m_PrefabInstance: {fileID: 223219047}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1643985064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643985060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 013eb80b1a61ceb4da712610807945ce, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1001 &1646080447
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11079,13 +11035,9 @@ MonoBehaviour:
   raHotepAudio: {fileID: 0}
   amunetAudio: {fileID: 0}
   itBossAudio: {fileID: 0}
-  robot1Audio: {fileID: 0}
-  robot2Audio: {fileID: 0}
-  robot3Audio: {fileID: 0}
-  orbEnergyAudio: {fileID: 0}
-  combatMusicAudio: {fileID: 0}
-  swordRustlingAudio: {fileID: 0}
+  orbExplosionAudio: {fileID: 0}
   fireSoundAudio: {fileID: 0}
+  technoHumAudio: {fileID: 0}
 --- !u!4 &1785147578 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4004468145395006, guid: a0ac4c6540ad663468d86b7d6bb07c9d, type: 3}
@@ -11401,9 +11353,9 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Height: 1.9332645
@@ -12540,7 +12492,6 @@ GameObject:
   - component: {fileID: 1939676508}
   - component: {fileID: 1939676507}
   - component: {fileID: 1939676506}
-  - component: {fileID: 1939676505}
   m_Layer: 0
   m_Name: Mummy3
   m_TagString: Untagged
@@ -12548,33 +12499,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!54 &1939676505
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1939676504}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &1939676506
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13124,6 +13048,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 175016, guid: aa4459760693800428bd4e9e9ebabad3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 170848850}
+    - targetCorrespondingSourceObject: {fileID: 175016, guid: aa4459760693800428bd4e9e9ebabad3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 170848854}
+    - targetCorrespondingSourceObject: {fileID: 175016, guid: aa4459760693800428bd4e9e9ebabad3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 170848853}
   m_SourcePrefab: {fileID: 100100000, guid: aa4459760693800428bd4e9e9ebabad3, type: 3}
 --- !u!1 &1972281816 stripped
 GameObject:
