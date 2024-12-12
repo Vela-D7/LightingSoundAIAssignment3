@@ -1,222 +1,123 @@
-﻿title: Being
+﻿title: Begin
 tags:
 ---
-Welcome to the start of your journey in the mines.
+Welcome to your journey through the mines.
 
-<<declare $takeGem = false as bool>>
-<<declare $takeSword = false as bool>>
-<<declare $kingDefeated = false as bool>>
-<<declare $robotDefeated = false as bool>>
+<<declare $takeGem = false>>
+<<declare $kingDefeated = false>>
+<<declare $orbTaken = false>>
 
+<<jump HangingManConfrontation>>
 ===
 
-title: StatueConfrontation
+title: HangingManConfrontation
 tags:
 ---
-<<change_audio_to_statue_echo YarnCommandHolder>>
-As you approach the statue, the air grows dense. A body, hanging from a decaying wooden beam, comes into view. Its eyes lock onto yours, and it speaks. #line:Amunet
+// <<change_audio_to_statue_echo>>
+A body hangs from a decaying wooden beam. Its eyes lock onto yours, speaking with a haunting voice.
 
-Voice (Amunet):"1. "Do you see them? Those who came before... they writhe still, unseen."
-"I was one of them, driven by greed, my soul chained to this accursed pit."
-"Do you fancy yourself braver? Wiser? Or is it folly that guides your hand?"
+Amunet: Do you see them? Those who came before... they writhe still, unseen. #line:Amunet1
+Amunet: I was driven by greed, my soul chained to this accursed pit. #line:Amunet2
+Amunet: Do you fancy yourself braver? Wiser? #line:Amunet3
 
--> Speak to the body. 
+-> Speak to the hanging body 
     <<jump HangingManChoice>>
--> Ignore and proceed past the hanging man.
+-> Ignore and proceed
     <<jump IgnoreManChoice>>
-
 ===
 
 title: HangingManChoice
 tags:
 ---
-**Voice (Amunet):** "Take it the gem! Leave this place. Perhaps... you'll find peace, or perhaps you'll rot as I do."
+Amunet: Take the gem! Leave this place. Perhaps... you'll find peace, or perhaps you'll rot as I do. #line:Amunet4
 
-<<set $takeGem = true>>
-<<jump MinePath>>
-
+<<set $takeGem to true>>
+<<jump KingConfrontation>>
 ===
 
 title: IgnoreManChoice
 tags:
 ---
-**Voice (Amunet):** "Blind are those who tread this path, for it leads only to the abyss."
+Amunet: Blind are those who tread this path, for it leads only to the abyss. #line:Amunet5
 
-<<jump MinePath>>
-
-===
-title: SwordChoice
-tags:
----
-<<change_audio_to_sword_rustling YarnCommandHolder>>
-You take the sword, its weight immediate and imposing. It hums in your grip, as if eager for battle.
-
-**Voice (Amunet):** "A blade against eternity, is it? So be it."
-"Bear it, and let its edge weigh on your spirit. Beyond lies only agony and despair."
-
-<<set $takeSword = true>>
-<<jump MinePath>>
+<<jump KingConfrontation>>
 ===
 
-title: LeftPath
+title: KingConfrontation
 tags:
 ---
-You decide to move forward, leaving the hanging figure behind. The cavern opens into a massive chamber, where the king, now a shadow of his former self, still digs endlessly for the gem.
+The cavern opens into a massive chamber, where the king, a shadow of his former self, still digs endlessly.
 
-**Voice (Ra-Hotep):** "You have come. Finally, you see the curse. To be immortal is to never rest, to be bound to the earth forever. If you wish to end it, you must free me."
+Ra-Hotep: You have come. To be immortal is to never rest, to be bound to the earth forever. If you wish to end it, you must free me. #line:RaHotep1
 
--> Burn the king with the lantern?
+-> Burn the king with the lantern
     <<jump BurnChoice>>
--> Walk away?
+-> Walk away
     <<jump WalkAwayChoice>>
-
 ===
 
 title: BurnChoice
 tags:
 ---
-<<change_audio_to_fire_sound YarnCommandHolder>>
+//<<change_audio_to_fire_sound>>
 With a trembling hand, you lift the lantern to the king. The flames lick the air as he screams in agony.
 
-**Voice (Ra-Hotep):** "End it... End my torment... Let my ashes speak the lesson of greed."
+Ra-Hotep: End it... End my torment... Let my ashes speak the lesson of greed. #line:RaHotep2
 
-<<set $kingDefeated = true>>
-<<jump EndGame>>
-
+<<set $kingDefeated to true>>
+<<jump ITBossConfrontation>>
 ===
 
 title: WalkAwayChoice
 tags:
 ---
-**Voice (Ra-Hotep):** "Coward. You will never escape the curse. It will follow you until the end of your days."
+Ra-Hotep: Coward. You will never escape the curse. It will follow you until the end of your days. #line:RaHotep3
 
-<<jump EndGame>>
-
+<<jump ITBossConfrontation>>
 ===
 
-// ### **Right-Hand Path: The Crypto Mining Future Path**
-
-title: CryptoStart
+title: ITBossConfrontation
 tags:
 ---
-Welcome to the future. You arrive at the high-tech mining facility. The buzzing of machines fills the air, and the scent of electricity hums in the background.
+//<<change_audio_to_techno_hum>>
+You enter a high-tech mining facility. The IT Boss stands over a control panel, monitoring operations.
 
-<<declare $takeOrb = false as bool>>
-<<declare $takeAxe = false as bool>>
+IT Boss: The orb calls you. It's the key to infinite power... or our destruction. #line:ITBoss1
 
-===
-
-title: CryptoNPCInteraction
-tags:
----
-<<change_audio_to_ambient_future YarnCommandHolder>>
-You find yourself in a cutting-edge crypto mining facility, the high-pitched hum of the machines reverberates through the walls. A strange energy in the air is palpable.
-
-<<if $takeOrb == false and $takeAxe == false>>
--> Examine the orb at the center of the room.
-    <<jump OrbInteraction>>
--> Walk toward the IT Boss’s office.
-    <<jump ITBossInteraction>>
-<<else>>
--> Examine the surroundings. 
-    <<jump CryptoPath>>
-<<endif>>
-
-===
-
-title: OrbInteraction
-tags:
----
-<<change_audio_to_orb_energy YarnCommandHolder>>
-You approach the orb. Its pulsating glow is mesmerizing, but you feel a deep sense of unease. This is not just a gem—it’s a power source for crypto mining.
-
-**Voice (IT Boss):** "You’ve found it. The key to infinite power... or the key to our destruction. Beware, for its greed consumes all who touch it."
-
-<<set $takeOrb = true>>
-<<jump CryptoPath>>
-
-===
-
-title: ITBossInteraction
-tags:
----
-<<change_audio_to_techno_hum YarnCommandHolder>>
-You step into the office, where the IT Boss stands over a control panel, monitoring the mining operation. His cold gaze meets yours.
-
-**Voice (IT Boss):** "Ah, you're here. The orb, it calls you, doesn’t it? But beware, the robots have orders to kill anyone who gets too close to the power source. Proceed with caution."
-
--> Fight the robots and take the orb?
-    <<jump FightRobots>>
--> Walk away from the power source?
-    <<jump WalkAwayCrypto>>
-
-===
-
-title: FightRobots
-tags:
----
-<<change_audio_to_combat_music YarnCommandHolder>>
-The robots activate, their metallic limbs screeching as they move towards you. You fight them off one by one.
-
-**Voice (Robot 1):** "Intruder detected. Initiating termination protocol."
-**Voice (Robot 2):** "You cannot stop the power. You cannot stop the king of the mines."
-**Voice (Robot 3):** "Power... overwhelming... system failure imminent."
-
-<<set $robotDefeated = true>>
-<<jump CryptoPath>>
-
-===
-
-title: WalkAwayCrypto
-tags:
----
-**Voice (IT Boss):** "You coward. You walk away from true power. I will make sure you never leave here alive."
-
-<<jump EndGame>>
-
-===
-
-title: CryptoPath
-tags:
----
-You have overcome the robots. The IT Boss awaits, and the orb now pulses with energy, ready to be taken.
-
-**Voice (IT Boss):** "Do you see the future now? The path to immortality? It is not a blessing—it is a curse. Take it if you dare."
-
--> Take the Orb?
+-> Take the Orb
     <<jump TakeOrb>>
--> Destroy the Orb?
+-> Destroy the Orb
     <<jump DestroyOrb>>
-
 ===
 
 title: TakeOrb
 tags:
 ---
-<<change_audio_to_orb_explosion YarnCommandHolder>>
-The orb hums as you grip it. Energy courses through your veins, and a vision of eternal power fills your mind. But you know this power comes at a great cost.
+//<<change_audio_to_orb_explosion>>
+The orb hums as you grip it. Energy courses through your veins.
 
-**Voice (IT Boss):** "You have chosen immortality... The price is your soul. You will become like us. A shadow of yourself."
+IT Boss: You have chosen immortality... The price is your soul. #line:ITBoss2
 
+<<set $orbTaken to true>>
 <<jump EndGame>>
-
 ===
 
 title: DestroyOrb
 tags:
 ---
-You destroy the orb, its power shattering into nothingness. The room falls silent.
+You destroy the orb, its power shattering into nothingness.
 
-**Voice (IT Boss):** "No! You fool! The world needed that power... Now, you will pay the price."
+IT Boss: No! You fool! The world needed that power. #line:ITBoss3
 
 <<jump EndGame>>
-
 ===
 
-### **EndGame**
+title: EndGame
 tags:
 ---
-<<if $kingDefeated == true or $robotDefeated == true>>
-Congratulations. You have completed your journey, but the price of immortality has forever altered you.
+<<if $kingDefeated is true or $orbTaken is true>>
+    You have completed your journey, but the price of immortality haunts you.
 <<else>>
-The curse of immortality claims you as its own. You walk the earth, lost to time and bound to the mines.
+    The curse claims you, lost to time and bound to the mines.
+<<endif>>
+===
