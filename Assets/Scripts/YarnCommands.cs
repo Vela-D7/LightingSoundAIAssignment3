@@ -7,143 +7,101 @@ public class YarnCommands : MonoBehaviour
 {
     public VoiceOverView voiceOverView;
 
-    // Audio sources for each character's voice
-    public AudioSource raHotepAudio, amunetAudio;
-    public AudioSource itBossAudio, robot1Audio, robot2Audio, robot3Audio;
-    public AudioSource orbEnergyAudio, combatMusicAudio;
-    public AudioSource swordRustlingAudio, fireSoundAudio;
+    // Audio sources for characters and events
+    public AudioSource raHotepAudio, amunetAudio, itBossAudio, orbExplosionAudio, fireSoundAudio, technoHumAudio;
 
-    // Track taken items and defeated characters
+    // State variables for Yarn Spinner
     private bool takeGem = false;
-    private bool takeSword = false;
     private bool kingDefeated = false;
-    private bool robotDefeated = false;
+    private bool orbTaken = false;
 
-    // Start is called before the first frame update
+    // Initialize variables
     void Start()
     {
-        // Initialize or set any default states
+        // Optional initialization logic if needed
     }
 
-    // Command for changing to the Ra-Hotep (Ancient Egypt) voice
+    // Command to change audio to Ra-Hotep's voice
     [YarnCommand("change_audio_to_raHotep")]
-    public void RaHotepAudio()
+    public void ChangeAudioToRaHotep()
     {
         voiceOverView.audioSource = raHotepAudio;
     }
 
-    // Command for changing to the Amunet (Hanging Man) voice
+    // Command to change audio to Amunet's voice
     [YarnCommand("change_audio_to_amunet")]
-    public void AmunetAudio()
+    public void ChangeAudioToAmunet()
     {
         voiceOverView.audioSource = amunetAudio;
     }
 
-    // Command for changing to the IT Boss voice (Future)
+    // Command to change audio to IT Boss's voice
     [YarnCommand("change_audio_to_itBoss")]
-    public void ItBossAudio()
+    public void ChangeAudioToItBoss()
     {
         voiceOverView.audioSource = itBossAudio;
     }
 
-    // Command for changing to the Robot 1 voice (Future)
-    [YarnCommand("change_audio_to_robot1")]
-    public void Robot1Audio()
+    // Command to change audio to orb explosion sound
+    [YarnCommand("change_audio_to_orb_explosion")]
+    public void ChangeAudioToOrbExplosion()
     {
-        voiceOverView.audioSource = robot1Audio;
+        voiceOverView.audioSource = orbExplosionAudio;
     }
 
-    // Command for changing to the Robot 2 voice (Future)
-    [YarnCommand("change_audio_to_robot2")]
-    public void Robot2Audio()
-    {
-        voiceOverView.audioSource = robot2Audio;
-    }
-
-    // Command for changing to the Robot 3 voice (Future)
-    [YarnCommand("change_audio_to_robot3")]
-    public void Robot3Audio()
-    {
-        voiceOverView.audioSource = robot3Audio;
-    }
-
-    
-
-    // Command for changing to the Orb Energy sound
-    [YarnCommand("change_audio_to_orb_energy")]
-    public void OrbEnergyAudio()
-    {
-        voiceOverView.audioSource = orbEnergyAudio;
-    }
-
-    // Command for changing to the Combat Music sound
-    [YarnCommand("change_audio_to_combat_music")]
-    public void CombatMusicAudio()
-    {
-        voiceOverView.audioSource = combatMusicAudio;
-    }
-
-  
-
-    [YarnCommand("change_audio_to_sword_rustling")]
-    public void SwordRustlingAudio()
-    {
-        voiceOverView.audioSource = swordRustlingAudio;
-    }
-
-
+    // Command to change audio to fire sound
     [YarnCommand("change_audio_to_fire_sound")]
-    public void FireSoundAudio()
+    public void ChangeAudioToFireSound()
     {
         voiceOverView.audioSource = fireSoundAudio;
     }
 
-    // Handle specific actions that happen when characters are interacted with, like taking gems, swords, or burning the king
+    // Command to change audio to techno hum sound
+    [YarnCommand("change_audio_to_techno_hum")]
+    public void ChangeAudioToTechnoHum()
+    {
+        voiceOverView.audioSource = technoHumAudio;
+    }
+
+    // Yarn command to set "takeGem" state
     [YarnCommand("set_take_gem")]
-    public void TakeGem()
+    public void SetTakeGem()
     {
         takeGem = true;
         Debug.Log("Gem has been taken.");
     }
 
-    [YarnCommand("set_take_sword")]
-    public void TakeSword()
+    // Yarn command to set "kingDefeated" state
+    [YarnCommand("set_king_defeated")]
+    public void SetKingDefeated()
     {
-        takeSword = true;
-        Debug.Log("Sword has been taken.");
+        kingDefeated = true;
+        Debug.Log("The king has been defeated.");
     }
 
-    [YarnCommand("burn_king")]
-    public void BurnKing()
+    // Yarn command to set "orbTaken" state
+    [YarnCommand("set_orb_taken")]
+    public void SetOrbTaken()
     {
-        // Logic to handle burning the king when the player chooses to do so
-        Debug.Log("Burning the king.");
-        // Add game mechanics for burning animation or effects here
+        orbTaken = true;
+        Debug.Log("The orb has been taken.");
     }
 
-    [YarnCommand("set_robot_defeated")]
-    public void DefeatRobot()
-    {
-        robotDefeated = true;
-        Debug.Log("A robot has been defeated.");
-        // Trigger events such as animations or visual feedback for defeating robots
-    }
-
-    // Checking if the player has defeated the king or robots to determine game outcome
+    // Yarn command to check end game state and trigger events
     [YarnCommand("check_end_game")]
     public void CheckEndGame()
     {
-        if (kingDefeated || robotDefeated)
+        if (kingDefeated || orbTaken)
         {
-            Debug.Log("Game Ended: Victory over King or Robots.");
-            // End game actions
+            Debug.Log("End Game: The journey is complete, but the consequences remain.");
+            // Trigger victory-related effects or end game events
         }
         else
         {
-            Debug.Log("Game Ended: Curse of Immortality remains.");
-            // Alternate ending actions
+            Debug.Log("End Game: The curse remains, you are lost to time.");
+            // Trigger failure-related effects or end game events
         }
     }
 
-    // Additional commands or logic can go here for any new interactions
+    // Additional helper methods for any future Yarn Spinner commands
 }
