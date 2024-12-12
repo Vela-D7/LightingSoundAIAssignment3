@@ -20553,7 +20553,7 @@ MonoBehaviour:
   typewriterEffectSpeed: 120
   continueButton: {fileID: 7778558434573278876}
   holdTime: 1
-  autoAdvance: 0
+  autoAdvance: 1
   palette: {fileID: 0}
 --- !u!225 &7778558435511182009
 CanvasGroup:
