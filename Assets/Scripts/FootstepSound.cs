@@ -23,6 +23,7 @@ public class FootstepSound : MonoBehaviour
     {
         if(Vector3.Distance(lastFootstepPosition, transform.position) > footstepGapDistance)
         {
+            Debug.Log("Footstep Sound");
             audioSource.pitch = Random.Range(0.8f, 1.2f);
             audioSource.Play();
             lastFootstepPosition = transform.position;
