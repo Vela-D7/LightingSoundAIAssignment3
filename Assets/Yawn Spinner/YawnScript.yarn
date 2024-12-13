@@ -4,11 +4,9 @@ tags:
 <<declare $takeGem = false>>
 <<declare $kingDefeated = false>>
 <<declare $orbTaken = false>>
-
-<<jump HangingManConfrontation>>
 ===
 
-title: HangingManConfrontation
+title: Amunet
 tags:
 ---
 // <<change_audio_to_statue_echo>>
@@ -27,25 +25,22 @@ Amunet: Do you fancy yourself braver? Wiser? #line:Amunet3
 title: HangingManChoice
 tags:
 ---
-<<change_audio_to_amunet>>
+<<change_audio_to_amunet YarnCommandHolder>>
 Amunet: Take the gem! Leave this place. Perhaps... you'll find peace, or Take my sword and move forward. #line:Amunet4
 
 <<set $takeGem to true>>
-<<jump KingConfrontation>>
 ===
 
 title: IgnoreManChoice
 tags:
 ---
 Amunet: Blind are those who tread this path, for it leads only to the abyss. #line:Amunet5
-
-<<jump KingConfrontation>>
 ===
 
-title: KingConfrontation
+title: King
 tags:
 ---
-<<change_audio_to_king>>
+<<change_audio_to_king YarnCommandHolder>>
 The cavern opens into a massive chamber, where the king, a shadow of his former self, still digs endlessly.
 
 Ra-Hotep: You have come Finally. I waited for 2000 years. To be immortal is to never rest, to be bound to the earth forever. If you wish to end it, you must free me. #line:RaHotep1
@@ -59,7 +54,7 @@ Ra-Hotep: You have come Finally. I waited for 2000 years. To be immortal is to n
 title: KillChoice
 tags:
 ---
-<<change_audio_to_king>>
+<<change_audio_to_king YarnCommandHolder>>
 //<<change_audio_to_fire_sound>>
 With a trembling hand, you killed the king.
 

@@ -3,6 +3,7 @@ using Yarn.Unity;
 
 public class AudioManager : MonoBehaviour
 {
+    public VoiceOverView voiceOverView;
     public AudioSource amunetAudio;
     public AudioSource kingAudio;
  
@@ -11,32 +12,20 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        //currentAudio = defaultAudio;
-        currentAudio.Play();
+        
     }
 
     [YarnCommand("change_audio_to_amunet")]
-    public void ChangeAudioToAmunet()
+    public void AmunetAudio()
     {
-        ChangeAudio(amunetAudio);
+        voiceOverView.audioSource = amunetAudio;
     }
 
     [YarnCommand("change_audio_to_king")]
-    public void ChangeAudioToKing()
+    public void KingAudio()
     {
-        ChangeAudio(kingAudio);
+        voiceOverView.audioSource = kingAudio;
     }
 
-    private void ChangeAudio(AudioSource newAudio)
-    {
-        if (currentAudio != null && currentAudio.isPlaying)
-        {
-            currentAudio.Stop();
-        }
-        currentAudio = newAudio;
-        if (currentAudio != null)
-        {
-            currentAudio.Play();
-        }
-    }
+    
 }
