@@ -27,6 +27,7 @@ Amunet: Do you fancy yourself braver? Wiser? #line:Amunet3
 title: HangingManChoice
 tags:
 ---
+<<change_audio_to_amunet>>
 Amunet: Take the gem! Leave this place. Perhaps... you'll find peace, or Take my sword and move forward. #line:Amunet4
 
 <<set $takeGem to true>>
@@ -44,6 +45,7 @@ Amunet: Blind are those who tread this path, for it leads only to the abyss. #li
 title: KingConfrontation
 tags:
 ---
+<<change_audio_to_king>>
 The cavern opens into a massive chamber, where the king, a shadow of his former self, still digs endlessly.
 
 Ra-Hotep: You have come Finally. I waited for 2000 years. To be immortal is to never rest, to be bound to the earth forever. If you wish to end it, you must free me. #line:RaHotep1
@@ -57,6 +59,7 @@ Ra-Hotep: You have come Finally. I waited for 2000 years. To be immortal is to n
 title: KillChoice
 tags:
 ---
+<<change_audio_to_king>>
 //<<change_audio_to_fire_sound>>
 With a trembling hand, you killed the king.
 
@@ -69,6 +72,7 @@ Ra-Hotep: End it... End my torment... Let my blood speak the lesson of greed. #l
 title: WalkAwayChoice
 tags:
 ---
+<<change_audio_to_king>>
 Ra-Hotep: Coward. You will never escape the curse. It will follow you until the end of your days. #line:RaHotep3
 
 <<jump EndGame>>

@@ -1,41 +1,42 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
 
-public class YarnCommands : MonoBehaviour
+public class AudioManager : MonoBehaviour
 {
-    public VoiceOverView voiceOverView;
-
-    // Audio sources for different sound effects or characters
     public AudioSource amunetAudio;
     public AudioSource kingAudio;
-    public AudioSource backgroundAudio;
+ 
 
-    // Start is called before the first frame update
-    void Start()
+    private AudioSource currentAudio;
+
+    private void Start()
     {
-        // Initialization code if necessary
+        //currentAudio = defaultAudio;
+        currentAudio.Play();
     }
 
-    // Change audio to Amunet's voice
     [YarnCommand("change_audio_to_amunet")]
-    public void SetAmunetAudio()
+    public void ChangeAudioToAmunet()
     {
-        voiceOverView.audioSource = amunetAudio;
+        ChangeAudio(amunetAudio);
     }
 
-    // Change audio to King's voice
     [YarnCommand("change_audio_to_king")]
-    public void SetKingAudio()
+    public void ChangeAudioToKing()
     {
-        voiceOverView.audioSource = kingAudio;
+        ChangeAudio(kingAudio);
     }
 
-    // Change background music
-    [YarnCommand("change_audio_to_background")]
-    public void SetBackgroundAudio()
+    private void ChangeAudio(AudioSource newAudio)
     {
-        voiceOverView.audioSource = backgroundAudio;
+        if (currentAudio != null && currentAudio.isPlaying)
+        {
+            currentAudio.Stop();
+        }
+        currentAudio = newAudio;
+        if (currentAudio != null)
+        {
+            currentAudio.Play();
+        }
     }
 }
