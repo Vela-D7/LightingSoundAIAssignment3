@@ -1,8 +1,6 @@
-﻿title: Begin
+title: Begin
 tags:
 ---
-Welcome to your journey through the mines.
-
 <<declare $takeGem = false>>
 <<declare $kingDefeated = false>>
 <<declare $orbTaken = false>>
@@ -29,7 +27,7 @@ Amunet: Do you fancy yourself braver? Wiser? #line:Amunet3
 title: HangingManChoice
 tags:
 ---
-Amunet: Take the gem! Leave this place. Perhaps... you'll find peace, or perhaps you'll rot as I do. #line:Amunet4
+Amunet: Take the gem! Leave this place. Perhaps... you'll find peace, or Take my sword and move forward. #line:Amunet4
 
 <<set $takeGem to true>>
 <<jump KingConfrontation>>
@@ -48,66 +46,30 @@ tags:
 ---
 The cavern opens into a massive chamber, where the king, a shadow of his former self, still digs endlessly.
 
-Ra-Hotep: You have come. To be immortal is to never rest, to be bound to the earth forever. If you wish to end it, you must free me. #line:RaHotep1
+Ra-Hotep: You have come Finally. I waited for 2000 years. To be immortal is to never rest, to be bound to the earth forever. If you wish to end it, you must free me. #line:RaHotep1
 
--> Burn the king with the lantern
-    <<jump BurnChoice>>
+-> Kill the king.
+    <<jump KillChoice>>
 -> Walk away
     <<jump WalkAwayChoice>>
 ===
 
-title: BurnChoice
+title: KillChoice
 tags:
 ---
 //<<change_audio_to_fire_sound>>
-With a trembling hand, you lift the lantern to the king. The flames lick the air as he screams in agony.
+With a trembling hand, you killed the king.
 
-Ra-Hotep: End it... End my torment... Let my ashes speak the lesson of greed. #line:RaHotep2
+Ra-Hotep: End it... End my torment... Let my blood speak the lesson of greed. #line:RaHotep2
 
 <<set $kingDefeated to true>>
-<<jump ITBossConfrontation>>
+<<jump EndGame>>
 ===
 
 title: WalkAwayChoice
 tags:
 ---
 Ra-Hotep: Coward. You will never escape the curse. It will follow you until the end of your days. #line:RaHotep3
-
-<<jump ITBossConfrontation>>
-===
-
-title: ITBossConfrontation
-tags:
----
-//<<change_audio_to_techno_hum>>
-You enter a high-tech mining facility. The IT Boss stands over a control panel, monitoring operations.
-
-IT Boss: The orb calls you. It's the key to infinite power... or our destruction. #line:ITBoss1
-
--> Take the Orb
-    <<jump TakeOrb>>
--> Destroy the Orb
-    <<jump DestroyOrb>>
-===
-
-title: TakeOrb
-tags:
----
-//<<change_audio_to_orb_explosion>>
-The orb hums as you grip it. Energy courses through your veins.
-
-IT Boss: You have chosen immortality... The price is your soul. #line:ITBoss2
-
-<<set $orbTaken to true>>
-<<jump EndGame>>
-===
-
-title: DestroyOrb
-tags:
----
-You destroy the orb, its power shattering into nothingness.
-
-IT Boss: No! You fool! The world needed that power. #line:ITBoss3
 
 <<jump EndGame>>
 ===

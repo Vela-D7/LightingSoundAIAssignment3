@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MummyBehavior : MonoBehaviour
+public class MummyBehavior2 : MonoBehaviour
 {
-    public int health = 3;
-    public Transform player;
-    public float attackRange = 2.0f;
-    public float waitRange = 10f;
+    public int health = 3; // Health of the mummy
+    public Transform player; // Reference to the player's transform
+    public float attackRange = 2.0f; // Range within which the mummy can attack
+    public float threatenRange = 10f; // Range within which the mummy threatens the player
     private bool isDead = false;
-    private Animator animator;
-    private NavMeshAgent agent;
+    private Animator animator; // Reference to the animator
+    private NavMeshAgent agent; // Reference to the NavMeshAgent for movement
 
     void Start()
     {
@@ -25,9 +25,9 @@ public class MummyBehavior : MonoBehaviour
 
         float distance = Vector3.Distance(transform.position, player.position);
 
-        if (distance > waitRange)
+        if (distance > threatenRange)
         {
-            // Idle when out of range
+            // If out of range, play idle animation
             animator.SetBool("isRunning", false);
             animator.SetTrigger("idle_axe");
             return;
@@ -35,21 +35,20 @@ public class MummyBehavior : MonoBehaviour
 
         if (distance > attackRange)
         {
-            // Chase the player
-            agent.SetDestination(player.position);
-            animator.SetBool("isRunning", true);
-            animator.SetTrigger("Run_axe");
+            // If the player is within threatening range, threaten them
+            animator.SetBool("isRunning", false);
+            animator.SetTrigger("Treaten_sword_shield");
         }
         else
         {
-            // Attack the player
+            // If the player is within attack range, perform an attack
             agent.ResetPath();
             animator.SetBool("isRunning", false);
 
-            // Choose attack based on some condition (for example, alternate between two attacks)
+            // Randomly choose between two attacks
             if (!animator.GetCurrentAnimatorStateInfo(0).IsName("attack_0_axe") && !animator.GetCurrentAnimatorStateInfo(0).IsName("attack_1_axe"))
             {
-                int attackChoice = Random.Range(0, 2); // Randomly choose an attack (0 or 1)
+                int attackChoice = Random.Range(0, 2); // Randomly select an attack (0 or 1)
                 if (attackChoice == 0)
                 {
                     animator.SetTrigger("attack_0_axe");
@@ -65,7 +64,7 @@ public class MummyBehavior : MonoBehaviour
     public void TakeDamage()
     {
         health--;
-        animator.SetTrigger("GetDamage_Axe"); // Play a damage reaction animation
+        animator.SetTrigger("GetDamage_Axe"); // Play damage reaction animation
 
         if (health <= 0) Die();
     }
@@ -81,8 +80,9 @@ public class MummyBehavior : MonoBehaviour
     void Die()
     {
         isDead = true;
-        animator.SetTrigger("Die_Axe"); // Play the death animation
+        animator.SetTrigger("Die_Axe"); // Play death animation
         agent.enabled = false; // Stop movement
-        Destroy(gameObject, 2f); // Remove after death animation
+        Destroy(gameObject, 2f); // Destroy the mummy after the death animation
     }
 }
+
