@@ -1,7 +1,4 @@
-# LightingSoundAI
-Here’s an example of a README file for your GitHub repository:
-
----
+# Abyss: The Forbidden Quest-Experience Prototype
 
 # Lighting, Sound, and AI Assignment 3
 
