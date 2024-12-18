@@ -4,12 +4,14 @@ tags:
 <<declare $takeGem = false>>
 <<declare $kingDefeated = false>>
 <<declare $orbTaken = false>>
+
+<<jump Amunet>>
 ===
 
 title: Amunet
 tags:
 ---
-// <<change_audio_to_statue_echo>>
+<<change_audio_amunet YarnCommandHolder>>
 A body hangs from a decaying wooden beam. Its eyes lock onto yours, speaking with a haunting voice.
 
 Amunet: Do you see them? Those who came before... they writhe still, unseen. #line:Amunet1
@@ -25,7 +27,7 @@ Amunet: Do you fancy yourself braver? Wiser? #line:Amunet3
 title: HangingManChoice
 tags:
 ---
-<<change_audio_to_amunet YarnCommandHolder>>
+<<change_audio_amunet YarnCommandHolder>>
 Amunet: Take the gem! Leave this place. Perhaps... you'll find peace, or Take my sword and move forward. #line:Amunet4
 
 <<set $takeGem to true>>
@@ -40,7 +42,7 @@ Amunet: Blind are those who tread this path, for it leads only to the abyss. #li
 title: King
 tags:
 ---
-<<change_audio_to_king YarnCommandHolder>>
+<<change_audio_amunet YarnCommandHolder>>
 The cavern opens into a massive chamber, where the king, a shadow of his former self, still digs endlessly.
 
 Ra-Hotep: You have come Finally. I waited for 2000 years. To be immortal is to never rest, to be bound to the earth forever. If you wish to end it, you must free me. #line:RaHotep1

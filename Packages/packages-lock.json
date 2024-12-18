@@ -312,11 +312,11 @@
       "url": "https://packages.unity.com"
     },
     "dev.yarnspinner.unity": {
-      "version": "2.4.2",
+      "version": "https://github.com/YarnSpinnerTool/YarnSpinner-Unity.git",
       "depth": 0,
-      "source": "registry",
+      "source": "git",
       "dependencies": {},
-      "url": "http://package.openupm.com"
+      "hash": "99d6b6f3549f45dfd1ed32a5ec6adbda07bf2321"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

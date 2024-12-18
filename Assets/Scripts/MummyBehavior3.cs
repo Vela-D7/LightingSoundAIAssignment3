@@ -29,7 +29,7 @@ public class MummyBehavior3 : MonoBehaviour
         if (distance > waitRange)
         {
             // If out of range, play idle animation
-            animator.SetBool("isRunning", false);
+            animator.SetBool("Run_axe", false);
             animator.SetTrigger("idle_axe");
             return;
         }
@@ -37,7 +37,7 @@ public class MummyBehavior3 : MonoBehaviour
         if (distance > attackRange)
         {
             // If within the waiting range, threaten the player
-            animator.SetBool("isRunning", false);
+            animator.SetBool("Run_axe", false);
             animator.SetTrigger("Treaten_sword_shield");
         }
         else

@@ -5,13 +5,15 @@ using UnityEngine.AI;
 
 public class MummyBehavior2 : MonoBehaviour
 {
-    public int health = 3; // Health of the mummy
-    public Transform player; // Reference to the player's transform
-    public float attackRange = 2.0f; // Range within which the mummy can attack
-    public float threatenRange = 10f; // Range within which the mummy threatens the player
+    public int health = 3;
+    public Transform player;
+    public float attackRange = 2.0f;
+    public float threatenRange = 10f;
     private bool isDead = false;
-    private Animator animator; // Reference to the animator
-    private NavMeshAgent agent; // Reference to the NavMeshAgent for movement
+    private Animator animator;
+    private NavMeshAgent agent;
+
+    [SerializeField] private string _attack_1 = "Attack1"; // Animation trigger for attack
 
     void Start()
     {
@@ -27,62 +29,36 @@ public class MummyBehavior2 : MonoBehaviour
 
         if (distance > threatenRange)
         {
-            // If out of range, play idle animation
-            animator.SetBool("isRunning", false);
-            animator.SetTrigger("idle_axe");
+            // Idle animation
+            animator.SetTrigger("Idle");
             return;
         }
 
         if (distance > attackRange)
         {
-            // If the player is within threatening range, threaten them
-            animator.SetBool("isRunning", false);
-            animator.SetTrigger("Treaten_sword_shield");
+            // Threaten animation
+            animator.SetTrigger("Threaten");
         }
         else
         {
-            // If the player is within attack range, perform an attack
-            agent.ResetPath();
-            animator.SetBool("isRunning", false);
-
-            // Randomly choose between two attacks
-            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("attack_0_axe") && !animator.GetCurrentAnimatorStateInfo(0).IsName("attack_1_axe"))
-            {
-                int attackChoice = Random.Range(0, 2); // Randomly select an attack (0 or 1)
-                if (attackChoice == 0)
-                {
-                    animator.SetTrigger("attack_0_axe");
-                }
-                else
-                {
-                    animator.SetTrigger("attack_1_axe");
-                }
-            }
+            // Perform attack
+            animator.SetTrigger(_attack_1);
         }
     }
 
     public void TakeDamage()
     {
         health--;
-        animator.SetTrigger("GetDamage_Axe"); // Play damage reaction animation
+        animator.SetTrigger("GetDamage");
 
         if (health <= 0) Die();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Sword"))
-        {
-            TakeDamage();
-        }
     }
 
     void Die()
     {
         isDead = true;
-        animator.SetTrigger("Die_Axe"); // Play death animation
-        agent.enabled = false; // Stop movement
-        Destroy(gameObject, 2f); // Destroy the mummy after the death animation
+        animator.SetTrigger("Die");
+        agent.enabled = false;
+        Destroy(gameObject, 2f);
     }
 }
-
